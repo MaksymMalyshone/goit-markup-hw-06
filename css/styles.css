@@ -229,8 +229,7 @@ img {
   min-width: 200px;
   min-height: 50px;
   padding: 10px 32px;
-  transition-duration: 250ms;
-  transition-property: color, background-color, box-shadow;
+  transition: background-color 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -569,6 +568,14 @@ img {
   color: var(--first-fon-color);
 }
 
+.online-title {
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--first-fon-color);
+  margin-right: 94px;
+}
+
 /* ---------------------------------MODAL---------------------------------------- */
 
 .backdrop {
@@ -607,9 +614,11 @@ img {
   top: 10px;
   right: 10px;
   cursor: pointer;
-  transition-duration: 250ms;
-  transition-property: color, background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: box-shadow, fill;
+  transition-duration: 250ms, 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s, 0s;
 }
 
 .modal-close-btn:hover,
@@ -639,6 +648,11 @@ img {
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s;
 }
 
 .modal-input {
@@ -647,6 +661,23 @@ img {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 40px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s;
+}
+
+.modal-input:hover,
+.modal-input:focus {
+  border-color: var(--accent-color);
+}
+
+.modal-input:focus + .modal-icon,
+.modal-input:hover + .modal-icon {
+  fill: var(--accent-color);
 }
 
 .modal-label {
@@ -664,6 +695,80 @@ img {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   resize: none;
+  cursor: pointer;
+  outline: none;
+  color: rgba(117, 117, 117, 0.5);
+  padding: 12px 16px;
+  transition: border-color 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-text:hover,
+.modal-text:focus {
+  border-color: var(--accent-color);
+}
+
+.check-text {
+  font-size: 14px;
+  line-height: 1.71;
+  color: var(--secondary-tex-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.check-text::before {
+  content: '';
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--primary-tex-color);
+  border-radius: 3px;
+  margin-right: 8.38px;
+  cursor: pointer;
+}
+
+.check-text:hover > .check-text::before {
+  border-color: var(--accent-color);
+}
+
+.modal-check:checked + .check-text::before {
+  background-color: var(--accent-color);
+  background-image: url(../images/check.svg);
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* 
+.modal-check:focus + .check-text::before {
+  background-color: var(--accent-color);
+} */
+
+.button-submit {
+  display: flex;
+  margin: 0 auto;
+  min-width: 200px;
+  min-height: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--accent-color);
+  color: var(--first-fon-color);
+  transition: background-color 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-submit:hover,
+.button-submit:focus {
+  background-color: #188ce8;
+}
+
+.agreement {
+  color: var(--accent-color);
 }
 
 .is-hidden {
@@ -705,9 +810,12 @@ img {
   border-radius: 4px;
   cursor: pointer;
   letter-spacing: 0.03em;
-  transition-duration: 250ms;
-  transition-property: color, background-color, box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color, box-shadow;
+  transition-duration: 250ms, 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s, 0s;
 }
 
 .btn:hover,
